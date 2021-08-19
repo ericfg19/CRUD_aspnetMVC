@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AT_CRUD.Models.Amigo>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+
+<h1>Lista de Amigos</h1>
+
+<p>
+    <a class="buttonAdd" asp-action="Create"> Adicionar Amigo <img src="~/Assets/Img/check-circle-fill.svg" class="img" fill="currentColor" alt="Adicionar Amigo" /> </a>
+</p>
+
+<div class="col-4 p-0 justify-content-end">
+    <form asp-controller="Amigos" asp-action="Index">
+        <input class="btn-group" type="text" name="nome" />
+        <span type="text" placeholder="Nome do Amigo">
+            <input class="btn-sm btn-info" type="submit" value="Filtrar" />
+        </span>
+
+    </form>
+    <div>
+        <a asp-action="Index">Limpar Filtro</a>
+    </div>
+
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h7>ID/SKU</h7>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SobreNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aniversario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmigoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SobreNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aniversario)
+            </td>
+            <td>
+                <a asp-action="Edit" class="buttonEdit" asp-route-id="@item.AmigoId">Editar <img src="~/Assets/Img/pencil.svg" class="img" fill="currentColor" alt="Editar" /></a> |
+                <a asp-action="Details" class="buttonInfo" asp-route-id="@item.AmigoId">Detalhes <img src="~/Assets/Img/info-circle.svg" class="img" fill="currentColor" alt="Informações" /></a> |
+                <a asp-action="Delete" class="buttonErase" asp-route-id="@item.AmigoId">Deletar <img src="~/Assets/Img/eraser-fill.svg" class="img" fill="currentColor" alt="Deletar" /></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

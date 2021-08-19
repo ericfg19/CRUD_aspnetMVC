@@ -1,0 +1,42 @@
+﻿@model AT_CRUD.Models.Amigo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes de Amigo <img src="~/Assets/Img/file-person.svg" class="img" width="35" alt="Amigo" /></h1>
+
+<div>
+    <h4>Principais informações:</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SobreNome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SobreNome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Idade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Idade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Aniversario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Aniversario)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AmigoId">Editar <img src="~/Assets/Img/pencil.svg" class="img" fill="currentColor" alt="Editar" /></a> |
+    <a asp-action="Index">Voltar para a Lista</a>
+</div>

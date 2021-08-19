@@ -1,0 +1,56 @@
+﻿@model AT_CRUD.Models.AniversarianteViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h2>Bem-vindo</h2>
+    <h1 class="display-4">CRUD - Cadastro de Amigos</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+</div>
+<div class="align-content-lg-between">
+    <div class="text-center">
+        <p>🎂 Aniversariante do dia 🎂</p>
+        <p>##</p>
+        <table class="table">
+            @foreach (var item in Model.Aniversariantes)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SobreNome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aniversario)
+                    </td>
+                    <td>
+                </tr>
+            }
+        </table>
+        <hr />
+        <p>Próximos aniversariantes:</p>
+
+        <table class="table">
+            @foreach (var item in Model.ProximosAniversariantes)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SobreNome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aniversario)
+                    </td>
+                    <td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
